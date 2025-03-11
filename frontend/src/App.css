@@ -93,7 +93,7 @@ button:active {
   transform: scale(0.95); 
 }
 
-/
+
 form {
   display: flex;
   flex-direction: column;
