@@ -5,3 +5,4 @@ packaging==24.2
 uvicorn==0.34.0
 fastapi
 pydantic
+requests
