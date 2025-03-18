@@ -16,6 +16,7 @@ app = FastAPI(debug=True)
 
 origins = [
     "http://localhost:5173", 
+    "https://geoquick.netlify.app", 
     "https://geoquick.netlify.app"
 ]
 
