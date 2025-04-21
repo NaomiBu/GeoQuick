@@ -9,14 +9,14 @@ from typing import List, Optional
 class Country(BaseModel):
     name: str
     languages: Optional[List[str]]  
-    capital: Optional[str]  
+    capital: Optional[List[str]]  
+    currency: Optional[List[str]]
 
 app = FastAPI(debug=True)
 
 
 origins = [
     "http://localhost:5173", 
-    "https://geoquick.netlify.app", 
     "https://geoquick.netlify.app"
 ]
 
@@ -38,13 +38,17 @@ def get_country_info(country_name: str):
         data = response.json()
         
         
-        languages = list(data[0]["languages"].values()) if "languages" in data[0] else []
-        capital = data[0].get("capital", ["Not available"])[0] 
+        languages = list(data[0].get("languages",{}).values())
+        capital = data[0].get("capital", ["Not available"]) 
+        currencies = list(data[0].get("currencies", {}).values())
+        currency = [currency.get("name", "Not available") for currency in currencies]
+
         
         return Country(
             name=data[0]["name"]["common"],
             languages=languages,
-            capital=capital
+            capital=capital,
+            currency = currency
         )
     except Exception as e:
         return {"error": "Country not found or invalid name."}

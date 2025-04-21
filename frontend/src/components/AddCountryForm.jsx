@@ -6,7 +6,7 @@ const AddCountryForm = ({ addCountry }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (countryName) {
-      addCountry(countryName);  // Send country name to the backend
+      addCountry(countryName);  
       setCountryName('');
     }
   };

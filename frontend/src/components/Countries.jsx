@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import api from "../api.js";  // Assuming you're using Axios to make API calls
+import api from "../api.js";  
 import AddCountryForm from './AddCountryForm.jsx';
 
 const CountryList = () => {
@@ -17,12 +17,12 @@ const CountryList = () => {
 
   const addCountry = async (countryName) => {
     try {
-      // Fetch the country details, languages, and capital city from the backend
+     
       const response = await api.get(`/countries/${countryName}`);
       
-      // If the country is found, update the list
+     
       if (response.data && response.data.languages) {
-        setCountries([...countries, { name: response.data.name, languages: response.data.languages, capital: response.data.capital }]);
+        setCountries([...countries, { name: response.data.name, languages: response.data.languages, capital: response.data.capital, currency: response.data.currency }]);
       } else {
         setError('Country not found');
       }
@@ -46,6 +46,10 @@ const CountryList = () => {
             <strong>{country.name}</strong>
             <div>
               <span><strong>Capital:</strong> {country.capital}</span>
+            </div>
+            <div>
+            <span><strong>Currency:</strong> {country.currency ? country.currency.join(', ') : 'No currencies available'}</span>
+
             </div>
             <div>
               <span><strong>Languages:</strong> {country.languages ? country.languages.join(', ') : 'No languages available'}</span>

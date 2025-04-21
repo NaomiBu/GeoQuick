@@ -1,6 +1,6 @@
 
 body {
-  background: linear-gradient(120deg, #e0f7fa, #a2c2e3); 
+  background: linear-gradient(120deg, #e0f7fa, #57d2f4); 
   font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
@@ -23,7 +23,7 @@ body {
 
 /* Header styling */
 .App-header {
-  background-color: #333;
+  background-color: #000000;
   color: #fff;
   padding: 1.5rem 2rem;
   border-radius: 12px;
