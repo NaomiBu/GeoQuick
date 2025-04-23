@@ -22,7 +22,8 @@ const CountryList = () => {
       
      
       if (response.data && response.data.languages) {
-        setCountries([...countries, { name: response.data.name, languages: response.data.languages, capital: response.data.capital, currency: response.data.currency }]);
+        setCountries([...countries, { name: response.data.name, languages: response.data.languages, capital: response.data.capital, currency: response.data.currency
+      }]);
       } else {
         setError('Country not found');
       }
@@ -35,6 +36,8 @@ const CountryList = () => {
   useEffect(() => {
     fetchCountries();
   }, []);
+
+
 
   return (
     <div>
@@ -54,6 +57,9 @@ const CountryList = () => {
             <div>
               <span><strong>Languages:</strong> {country.languages ? country.languages.join(', ') : 'No languages available'}</span>
             </div>
+           
+          
+
           </li>
         ))}
       </ul>

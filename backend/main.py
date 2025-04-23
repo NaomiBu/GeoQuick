@@ -1,5 +1,5 @@
 import uvicorn
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 import requests
 from pydantic import BaseModel
@@ -50,8 +50,12 @@ def get_country_info(country_name: str):
             capital=capital,
             currency = currency
         )
+    
+    except requests.exceptions.RequestException:
+        raise HTTPException(status_code=502, detail="Failed to fetch country data from external API.")
+    
     except Exception as e:
-        return {"error": "Country not found or invalid name."}
+        raise HTTPException(status_code=404, detail="Country not found or invalid name.")
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)
