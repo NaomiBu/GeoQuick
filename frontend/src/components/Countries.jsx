@@ -46,7 +46,7 @@ const CountryList = () => {
       <ul>
         {countries.map((country, index) => (
           <li key={index}>
-            <strong>{country.name}</strong>
+            <strong style={{ fontSize: '1.5em'}}>{country.name}</strong>
             <div>
               <span><strong>Capital:</strong> {country.capital}</span>
             </div>
