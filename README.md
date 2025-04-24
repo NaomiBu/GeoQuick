@@ -7,3 +7,5 @@ GeoQuick is a simple web app that allows users to search for a country by name a
 - **View the capital city**: Instantly see the capital of the searched country.
 - **Display official languages**: View the official languages spoken in that country.
 
+## 🚀 Live Demo
+[Try GeoQuick](https://geoquick.netlify.app)
